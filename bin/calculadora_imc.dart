@@ -1,15 +1,16 @@
 import 'dart:io';
 
-import 'package:calculadora_imc/calculadora_imc.dart' as calculadora_imc;
+import 'package:calculadora_imc/calculadora_imc.dart';
 
 void main() {
-  final imc = calculadora_imc.Imc();
+  print('Digite seu nome:');
+  Pessoa.nome = stdin.readLineSync();
   print('Digite seu peso:');
-  final String? peso = stdin.readLineSync();
+  Pessoa.peso = double.tryParse(stdin.readLineSync() ?? '');
   print('Digite sua altura:');
-  final String? altura = stdin.readLineSync();
+  Pessoa.altura = double.tryParse(stdin.readLineSync() ?? '');
 
-  final result = imc.calculate(double.parse(peso!), double.parse(altura!));
+  Pessoa.imc = Pessoa.calculate(Pessoa.peso!, Pessoa.altura!);
 
-  print('Sua massa corporral é: $result');
+  print(Pessoa.imc);
 }

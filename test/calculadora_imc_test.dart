@@ -3,7 +3,6 @@ import 'package:test/test.dart';
 
 void main() {
   test('calculate', () {
-    final c = Imc();
-    expect(c.calculate(80, 1.75), 0);
+    expect(Pessoa.calculate(80, 1.75), 'Massa corporal 26.12, sobrepeso');
   });
 }
